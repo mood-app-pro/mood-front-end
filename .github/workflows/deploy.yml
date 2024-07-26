@@ -11,12 +11,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '22'
+        node-version: '22.5.1'
 
     - name: Install dependencies
       run: npm install
@@ -25,19 +25,26 @@ jobs:
       run: npm run build
 
     - name: Add SSH Key
-      uses: webfactory/ssh-agent@v0.5.3
+      uses: webfactory/ssh-agent@v0.7.0
       with:
         ssh-private-key: ${{ secrets.VPS_PRIVATE_KEY }}
 
     - name: Copy files via SSH
       run: |
+        echo "Starting rsync..."
         rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ user@${{ secrets.VPS_HOST }}:/home/mood-app/
+        echo "rsync completed."
 
     - name: Restart application via SSH
       run: |
+        echo "Connecting to server to restart application..."
         ssh -o StrictHostKeyChecking=no user@${{ secrets.VPS_HOST }} << 'EOF'
+          echo "Navigating to application directory..."
           cd /home/mood-app
+          echo "Installing production dependencies..."
           npm install --production
+          echo "Restarting application using pm2..."
           pm2 restart all || pm2 start npm --name "mood-app" -- start
         EOF
+        echo "Application restarted."
 
