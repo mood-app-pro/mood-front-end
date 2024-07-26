@@ -5,7 +5,7 @@ const HeroSection = () => {
     <section
       className="bg-cover bg-center h-96 md:h-120 flex items-center justify-center text-white"
       style={{
-        backgroundImage: 'url(https://www.scifinow.co.uk/wp-content/uploads/2018/10/Screen-Shot-2018-10-30-at-09.08.19.png)',
+        backgroundImage: 'url(https://buatlogoonline.com/wp-content/uploads/2020/03/Web-Banner-1-01-01-01.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
