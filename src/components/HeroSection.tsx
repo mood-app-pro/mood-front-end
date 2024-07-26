@@ -5,7 +5,7 @@ const HeroSection = () => {
     <section
       className="bg-cover bg-center h-96 md:h-120 flex items-center justify-center text-white"
       style={{
-        backgroundImage: 'url(https://buatlogoonline.com/wp-content/uploads/2020/03/Web-Banner-1-01-01-01.png)',
+        backgroundImage: 'url(https://png.pngtree.com/background/20210714/original/pngtree-simple-gradient-light-blue-cool-banner-background-picture-image_1188560.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
