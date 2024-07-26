@@ -11,7 +11,7 @@ const Header = () => {
     <header className="bg-white shadow-md py-2">
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="flex items-center">
-          <img src="/path/to/logo.png" alt="Logo" className="h-8 mr-8" /> {/* Update dengan path logo Anda */}
+          <img src="https://moodapp.id/_next/image?url=%2Fmood.png&w=128&q=75" alt="Logo" className="h-8 mr-8" />
           <nav className="hidden md:flex space-x-4 items-center text-sm">
             <a href="#" className="text-gray-600 hover:text-gray-800">Beranda</a>
             <div className="relative">
