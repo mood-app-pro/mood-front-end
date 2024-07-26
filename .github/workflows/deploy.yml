@@ -3,7 +3,7 @@ name: Deploy Mood App
 on:
   push:
     branches:
-      - master
+      - master  # Ganti dengan branch yang Anda inginkan
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '22.5.1'
+        node-version: '22.5.1'  # Ganti dengan versi Node.js yang Anda butuhkan
 
     - name: Install dependencies
       run: npm install
@@ -29,22 +29,53 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.VPS_PRIVATE_KEY }}
 
+    - name: Test SSH Connection
+      run: |
+        echo "Testing SSH connection to VPS..."
+        ssh -vvv -o StrictHostKeyChecking=no -p ${{ secrets.VPS_PORT }} root@${{ secrets.VPS_HOST }} "echo 'SSH connection successful'"
+        if [ $? -ne 0 ]; then
+          echo "SSH connection failed"
+          exit 1
+        fi
+        echo "SSH connection successful"
+
     - name: Copy files via SSH
       run: |
         echo "Starting rsync..."
-        rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ user@${{ secrets.VPS_HOST }}:/home/mood-app/
+        rsync -avz -e "ssh -vvv -o StrictHostKeyChecking=no -p ${{ secrets.VPS_PORT }}" ./ root@${{ secrets.VPS_HOST }}:/home/mood-app/
+        if [ $? -ne 0 ]; then
+          echo "rsync failed"
+          exit 1
+        fi
         echo "rsync completed."
 
     - name: Restart application via SSH
       run: |
         echo "Connecting to server to restart application..."
-        ssh -o StrictHostKeyChecking=no user@${{ secrets.VPS_HOST }} << 'EOF'
+        ssh -vvv -o StrictHostKeyChecking=no -p ${{ secrets.VPS_PORT }} root@${{ secrets.VPS_HOST }} << 'EOF'
           echo "Navigating to application directory..."
           cd /home/mood-app
+          if [ $? -ne 0 ]; then
+            echo "Failed to change directory"
+            exit 1
+          fi
           echo "Installing production dependencies..."
           npm install --production
+          if [ $? -ne 0 ]; then
+            echo "npm install failed"
+            exit 1
+          fi
           echo "Restarting application using pm2..."
           pm2 restart all || pm2 start npm --name "mood-app" -- start
+          if [ $? -ne 0 ];then
+            echo "pm2 restart failed"
+            exit 1
+          fi
+          echo "Application restarted."
         EOF
-        echo "Application restarted."
+        if [ $? -ne 0 ]; then
+          echo "SSH command failed"
+          exit 1
+        fi
+        echo "SSH command completed."
 
