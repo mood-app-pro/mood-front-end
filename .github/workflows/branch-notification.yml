@@ -22,26 +22,30 @@ jobs:
             const issueTitle = `New branch created or updated: ${branchName}`;
             const issueBody = `A new branch named \`${branchName}\` has been created or updated. Please consider merging it to the \`main\` branch if appropriate.`;
             
-            const { data: issues } = await github.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open'
-            });
-
-            const existingIssue = issues.find(issue => issue.title === issueTitle);
-
-            if (!existingIssue) {
-              await github.issues.create({
+            try {
+              const { data: issues } = await github.rest.issues.listForRepo({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title: issueTitle,
-                body: issueBody
+                state: 'open'
               });
-            } else {
-              await github.issues.update({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: existingIssue.number,
-                body: issueBody
-              });
+
+              const existingIssue = issues.find(issue => issue.title === issueTitle);
+
+              if (!existingIssue) {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title: issueTitle,
+                  body: issueBody
+                });
+              } else {
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existingIssue.number,
+                  body: issueBody
+                });
+              }
+            } catch (error) {
+              core.setFailed(`Error creating or updating issue: ${error.message}`);
             }
