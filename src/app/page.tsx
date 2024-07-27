@@ -14,7 +14,7 @@ const BerandaPage: React.FC = () => {
       <GameCategories />
       <RecommendedPlayers />
       <MobileLegends />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
