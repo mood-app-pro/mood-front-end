@@ -1,5 +1,9 @@
 name: Branch Notification
 
+permissions:
+  issues: write
+  contents: read
+
 on:
   create:
     branches:
@@ -13,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Create Issue
         uses: actions/github-script@v5
         with:
@@ -22,6 +29,10 @@ jobs:
             const issueTitle = `New branch created or updated: ${branchName}`;
             const issueBody = `A new branch named \`${branchName}\` has been created or updated. Please consider merging it to the \`main\` branch if appropriate.`;
             
+            console.log(`Branch name: ${branchName}`);
+            console.log(`Issue title: ${issueTitle}`);
+            console.log(`Issue body: ${issueBody}`);
+
             try {
               const { data: issues } = await github.rest.issues.listForRepo({
                 owner: context.repo.owner,
@@ -29,23 +40,28 @@ jobs:
                 state: 'open'
               });
 
+              console.log(`Open issues: ${JSON.stringify(issues, null, 2)}`);
+
               const existingIssue = issues.find(issue => issue.title === issueTitle);
 
               if (!existingIssue) {
-                await github.rest.issues.create({
+                const newIssue = await github.rest.issues.create({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   title: issueTitle,
                   body: issueBody
                 });
+                console.log(`Created new issue: ${JSON.stringify(newIssue, null, 2)}`);
               } else {
-                await github.rest.issues.update({
+                const updatedIssue = await github.rest.issues.update({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   issue_number: existingIssue.number,
                   body: issueBody
                 });
+                console.log(`Updated existing issue: ${JSON.stringify(updatedIssue, null, 2)}`);
               }
             } catch (error) {
+              console.error(`Error creating or updating issue: ${error.message}`);
               core.setFailed(`Error creating or updating issue: ${error.message}`);
             }
