@@ -37,11 +37,3 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 Test CI/CD pipeline
 Test CI/CD pipeline
 Testing updated CI/CD pipeline
-Testing updated CI/CD pipeline
-Testing updated CI/CD pipeline
-Testing updated CI/CD pipeline
-Testing updated CI/CD pipeline
-Testing updated CI/CD pipeline
-Testing updated CI/CD pipeline
-Testing updated CI/CD pipeline
-Testing updated CI/CD pipeline
