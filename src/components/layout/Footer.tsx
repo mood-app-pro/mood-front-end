@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -16,7 +17,7 @@ const Footer = () => {
             <h3 className="font-bold mb-4">Telusuri</h3>
             <ul>
               <li className="mb-2"><a href="#" className="hover:underline">Beranda</a></li>
-              <li className="mb-2"><a href="#" className="hover:underline">Moment</a></li>
+              <li className="mb-2"><Link href="/ceritaHot"  className="hover:underline">Moment</Link></li>
             </ul>
           </div>
           <div>

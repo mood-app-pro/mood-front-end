@@ -6,15 +6,15 @@ import RecommendedPlayers from '@/components/Home/RecommendedPlayers';
 import MobileLegends from '@/components/Home/MobileLegends';
 import Footer from '@/components/layout/Footer';
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
     <>
       <Header />
-      <HeroSection/>
-      <GameCategories/>
-      <RecommendedPlayers/>
-      <MobileLegends/>
-      <Footer/>
+      <HeroSection />
+      <GameCategories />
+      <RecommendedPlayers />
+      <MobileLegends />
+      <Footer />
     </>
   );
 };
