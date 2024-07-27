@@ -1,0 +1,47 @@
+name: Branch Notification
+
+on:
+  create:
+    branches:
+      - '*'
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create Issue
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const branchName = context.ref.replace('refs/heads/', '');
+            const issueTitle = `New branch created or updated: ${branchName}`;
+            const issueBody = `A new branch named \`${branchName}\` has been created or updated. Please consider merging it to the \`main\` branch if appropriate.`;
+            
+            const { data: issues } = await github.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open'
+            });
+
+            const existingIssue = issues.find(issue => issue.title === issueTitle);
+
+            if (!existingIssue) {
+              await github.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: issueTitle,
+                body: issueBody
+              });
+            } else {
+              await github.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingIssue.number,
+                body: issueBody
+              });
+            }
