@@ -11,6 +11,10 @@ const HomePage = () => {
     <>
       <Header />
       <HeroSection/>
+      <GameCategories/>
+      <RecommendedPlayers/>
+      <MobileLegends/>
+      <Footer/>
     </>
   );
 };
