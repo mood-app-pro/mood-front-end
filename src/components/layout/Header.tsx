@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import LoginModal from '@/components/login/LoginModal';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import LoginModal from "@/components/Login/LoginModal";
 
 const Header = () => {
   const [showServices, setShowServices] = useState(false);
@@ -21,17 +21,17 @@ const Header = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white bg-opacity-90 shadow-lg' : 'bg-white'
+        isScrolled ? "bg-white bg-opacity-90 shadow-lg" : "bg-white"
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-4 py-2">
@@ -55,19 +55,39 @@ const Header = () => {
                 onClick={() => setShowServices(!showServices)}
               >
                 Semua Layanan
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
                 </svg>
               </button>
               {showServices && (
                 <div className="absolute left-0 mt-2 py-2 w-48 bg-white border rounded shadow-xl z-10">
-                  <Link href="/layanan1" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                  <Link
+                    href="/layanan1"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  >
                     Layanan 1
                   </Link>
-                  <Link href="/layanan2" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                  <Link
+                    href="/layanan2"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  >
                     Layanan 2
                   </Link>
-                  <Link href="/layanan3" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                  <Link
+                    href="/layanan3"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  >
                     Layanan 3
                   </Link>
                 </div>
@@ -80,10 +100,25 @@ const Header = () => {
         </div>
         <div className="flex items-center space-x-4">
           <div className="relative hidden lg:block">
-            <input type="text" placeholder="Search" className="px-3 py-1 border rounded-full text-sm" />
+            <input
+              type="text"
+              placeholder="Search"
+              className="px-3 py-1 border rounded-full text-sm"
+            />
             <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
-              <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"></path>
+              <svg
+                className="w-4 h-4 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"
+                ></path>
               </svg>
             </button>
           </div>
@@ -98,21 +133,30 @@ const Header = () => {
                 width={14}
                 height={10}
                 alt="Globe"
-                style={{ marginLeft: '4px' }}
+                style={{ marginLeft: "4px" }}
               />
             </button>
             {showLanguages && (
               <div className="absolute right-0 mt-2 py-2 w-32 bg-white border rounded shadow-xl z-10">
-                <Link href="/indonesia" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                <Link
+                  href="/indonesia"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >
                   Indonesia
                 </Link>
-                <Link href="/english" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                <Link
+                  href="/english"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >
                   English
                 </Link>
               </div>
             )}
           </div>
-          <Link href="#" className="bg-yellow-500 text-white px-3 py-1 rounded flex items-center text-sm">
+          <Link
+            href="#"
+            className="bg-yellow-500 text-white px-3 py-1 rounded flex items-center text-sm"
+          >
             Top Up
           </Link>
           <button
@@ -125,8 +169,19 @@ const Header = () => {
             className="lg:hidden text-gray-600 hover:text-gray-800 flex items-center"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
             </svg>
           </button>
         </div>
@@ -143,25 +198,48 @@ const Header = () => {
                 onClick={() => setShowServices(!showServices)}
               >
                 Semua Layanan
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
                 </svg>
               </button>
               {showServices && (
                 <div className="mt-2 py-2 w-full bg-white border rounded shadow-xl z-10">
-                  <Link href="/layanan1" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                  <Link
+                    href="/layanan1"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  >
                     Layanan 1
                   </Link>
-                  <Link href="/layanan2" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                  <Link
+                    href="/layanan2"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  >
                     Layanan 2
                   </Link>
-                  <Link href="/layanan3" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                  <Link
+                    href="/layanan3"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  >
                     Layanan 3
                   </Link>
                 </div>
               )}
             </div>
-            <Link href="/cerita" className="block text-gray-600 hover:text-gray-800">
+            <Link
+              href="/cerita"
+              className="block text-gray-600 hover:text-gray-800"
+            >
               Cerita
             </Link>
             <div className="relative">
@@ -170,16 +248,33 @@ const Header = () => {
                 onClick={() => setShowLanguages(!showLanguages)}
               >
                 Bahasa
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
                 </svg>
               </button>
               {showLanguages && (
                 <div className="mt-2 py-2 w-full bg-white border rounded shadow-xl z-10">
-                  <Link href="/indonesia" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                  <Link
+                    href="/indonesia"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  >
                     Indonesia
                   </Link>
-                  <Link href="/english" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                  <Link
+                    href="/english"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  >
                     English
                   </Link>
                 </div>
@@ -187,10 +282,25 @@ const Header = () => {
             </div>
           </nav>
           <div className="relative mt-4">
-            <input type="text" placeholder="Search" className="w-full px-3 py-1 border rounded-full text-sm" />
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-full px-3 py-1 border rounded-full text-sm"
+            />
             <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
-              <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"></path>
+              <svg
+                className="w-4 h-4 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"
+                ></path>
               </svg>
             </button>
           </div>

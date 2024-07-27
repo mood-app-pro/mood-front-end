@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "@/components/layout/Header";
-import HeroSection from "@/components/Home/HeroSection";
-import GameCategories from "@/components/Home/GameCategories";
-import RecommendedPlayers from "@/components/Home/RecommendedPlayers";
-import MobileLegends from "@/components/Home/MobileLegends";
-import Footer from "@/components/layout/Footer";
+import Header from "@/components/Layout/Header";
+import HeroSection from "@/components/Beranda/HeroSection";
+import GameCategories from "@/components/Beranda/GameCategories";
+import RecommendedPlayers from "@/components/Beranda/RecommendedPlayers";
+import MobileLegends from "@/components/Beranda/MobileLegends";
+import Footer from "@/components/Layout/Footer";
 
-const HomePage: React.FC = () => {
+const BerandaPage: React.FC = () => {
   return (
     <>
       <Header />
@@ -14,9 +14,9 @@ const HomePage: React.FC = () => {
       <GameCategories />
       <RecommendedPlayers />
       <MobileLegends />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
 
-export default HomePage;
+export default BerandaPage;
