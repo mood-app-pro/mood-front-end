@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 const posts = [
   {
@@ -96,6 +97,7 @@ const CeritaHot: React.FC = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
