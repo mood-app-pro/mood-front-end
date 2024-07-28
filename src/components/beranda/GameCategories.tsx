@@ -23,8 +23,8 @@ const categories = [
 
 const GameCategories: React.FC = () => {
   return (
-    <section className="py-8">
-      <div className="container mx-auto px-4 md:px-20 lg:px-40 xl:px-56">
+    <section className="py-6">
+      <div className="container mx-auto px-4 md:px-10 lg:px-20 xl:px-28">
         {categories.map((category, idx) => (
           <div key={idx} className="mb-8">
             <div className="flex justify-between items-center mb-4">
