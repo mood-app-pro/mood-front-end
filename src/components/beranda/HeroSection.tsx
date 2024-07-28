@@ -10,7 +10,7 @@ const images = [
   "/images/banner/banner-test.png",
 ];
 
-const HeroSection = () => {
+const HeroSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
