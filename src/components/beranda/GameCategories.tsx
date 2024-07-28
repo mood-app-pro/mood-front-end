@@ -21,24 +21,24 @@ const categories = [
   },
 ];
 
-const GameCategories = () => {
+const GameCategories: React.FC = () => {
   return (
     <section className="py-8">
       <div className="container mx-auto px-4 md:px-20 lg:px-40 xl:px-56">
         {categories.map((category, idx) => (
-          <div key={idx} className="mb-8">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold">{category.title}</h2>
-              <a href="#" className="text-sm text-gray-600 hover:text-gray-800">Lihat Semua &gt;</a>
+          <div key={idx} className="mb-12">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">{category.title}</h2>
+              <a href="#" className="text-xs md:text-sm text-gray-600 hover:text-gray-800">Lihat Semua &gt;</a>
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-4">
               {category.items.map((item, index) => (
-                <div key={index} className="bg-white shadow-md rounded overflow-hidden text-center">
+                <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden text-center transition-transform transform hover:scale-105">
                   <div className="aspect-w-1 aspect-h-1 bg-gray-200">
                     <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                   </div>
                   <div className="p-4">
-                    <h3 className="text-sm md:text-lg font-bold">{item.name}</h3>
+                    <h3 className="text-xs md:text-sm lg:text-base font-bold text-gray-800 truncate">{item.name}</h3>
                   </div>
                 </div>
               ))}

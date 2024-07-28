@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer: React.FC = () => {
   return (
@@ -7,74 +8,105 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 md:px-20 lg:px-40 xl:px-56">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="font-bold mb-4">Toko</h3>
-            <ul>
+            <h3 className="font-semibold mb-4 text-xs md:text-sm">Toko</h3>
+            <ul className="text-xs">
               <li className="mb-2">
                 <Link href="#" className="hover:underline">
-                Topup Koin
+                  Topup Koin
                 </Link>
-                </li>
+              </li>
               <li className="mb-2">
                 <Link href="#" className="hover:underline">
-                Topup Voucher Games
+                  Topup Voucher Games
                 </Link>
-                </li>
+              </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-4">Telusuri</h3>
-            <ul>
+            <h3 className="font-semibold mb-4 text-xs md:text-sm">Telusuri</h3>
+            <ul className="text-xs">
               <li className="mb-2">
                 <Link href="/" className="hover:underline">
-                Beranda
+                  Beranda
                 </Link>
-                </li>
+              </li>
               <li className="mb-2">
-                <Link href="/cerita"  className="hover:underline">Moment</Link>
-                </li>
+                <Link href="/cerita" className="hover:underline">
+                  Moment
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-4">Bantuan</h3>
-            <ul>
+            <h3 className="font-semibold mb-4 text-xs md:text-sm">Bantuan</h3>
+            <ul className="text-xs">
               <li className="mb-2">
-                <Link href="#" className="hover:underline">Panduan</Link>
-                </li>
+                <Link href="#" className="hover:underline">
+                  Panduan
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-4">Perusahaan</h3>
-            <ul>
+            <h3 className="font-semibold mb-4 text-xs md:text-sm">Perusahaan</h3>
+            <ul className="text-xs">
               <li className="mb-2">
-                <Link href="#" className="hover:underline">Tentang Kami</Link>
-                </li>
+                <Link href="#" className="hover:underline">
+                  Tentang Kami
+                </Link>
+              </li>
               <li className="mb-2">
-                <Link href="#" className="hover:underline">Hubungi Kami</Link>
-                </li>
+                <Link href="#" className="hover:underline">
+                  Hubungi Kami
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-4">Follow Us</h3>
-            <div className="flex flex-col space-y-2">
-              <Link href="#" className="text-white hover:text-gray-400"><i className="fab fa-facebook-f"></i></Link>
-              <Link href="#" className="text-white hover:text-gray-400"><i className="fab fa-instagram"></i></Link>
-              <Link href="#" className="text-white hover:text-gray-400"><i className="fab fa-twitter"></i></Link>
-              <Link href="#" className="text-white hover:text-gray-400"><i className="fab fa-youtube"></i></Link>
-              <Link href="#" className="text-white hover:text-gray-400"><i className="fab fa-twitch"></i></Link>
-              <Link href="#" className="text-white hover:text-gray-400"><i className="fab fa-discord"></i></Link>
+            <h3 className="font-semibold mb-4 text-xs md:text-sm">Follow Us</h3>
+            <div className="flex space-x-4">
+              <Link href="#">
+                <Image src="/images/icons/icons-facebook.svg" width={24} height={24} alt="Facebook" />
+              </Link>
+              <Link href="#">
+                <Image src="/images/icons/icons-instagram.svg" width={24} height={24} alt="Instagram" />
+              </Link>
+              <Link href="#">
+                <Image src="/images/icons/icons-twitterx.svg" width={24} height={24} alt="Twitter" />
+              </Link>
+              <Link href="#">
+                <Image src="/images/icons/icons-line.svg" width={24} height={24} alt="YouTube" />
+              </Link>
+              <Link href="#">
+                <Image src="/images/icons/icons-phone.svg" width={24} height={24} alt="Twitch" />
+              </Link>
+              <Link href="#">
+                <Image src="/images/icons/icons-tik-tok.svg" width={24} height={24} alt="Discord" />
+              </Link>
             </div>
           </div>
         </div>
         <div className="text-center mb-4">
-          <h2 className="text-lg font-bold">FOR GAMERS, BY GAMERS.™</h2>
+          <h2 className="text-base md:text-lg font-semibold">FOR GAMERS, BY GAMERS.™</h2>
         </div>
-        <div className="text-center text-sm">
+        <div className="text-center text-xs">
           <p>&copy; 2024 Mood. All rights reserved.</p>
           <div className="mt-2">
-            <Link href="#" className="hover:underline">Syarat dan Ketentuan</Link> | 
-            <Link href="#" className="hover:underline">Aspek Legal</Link> | 
-            <Link href="#" className="hover:underline">Kebijakan Privasi</Link> | 
-            <Link href="#" className="hover:underline">Pengaturan Cookie</Link>
+            <Link href="#" className="hover:underline">
+              Syarat dan Ketentuan
+            </Link>{' '}
+            |{' '}
+            <Link href="#" className="hover:underline">
+              Aspek Legal
+            </Link>{' '}
+            |{' '}
+            <Link href="#" className="hover:underline">
+              Kebijakan Privasi
+            </Link>{' '}
+            |{' '}
+            <Link href="#" className="hover:underline">
+              Pengaturan Cookie
+            </Link>
           </div>
         </div>
       </div>

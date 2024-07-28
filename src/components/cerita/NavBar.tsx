@@ -11,7 +11,7 @@ const NavBar: React.FC = () => {
   return (
     <>
       {/* Navigation bar for mobile */}
-      <div className="bg-gray-900 text-white p-4 md:hidden">
+      <div className="bg-yellow-950 text-white p-4 md:hidden">
         <nav className="flex justify-around">
           <Link href="/cerita" className={`block ${isActive('/cerita') ? 'text-yellow-400 font-bold' : ''}`}>
             Hot
@@ -25,7 +25,7 @@ const NavBar: React.FC = () => {
         </nav>
       </div>
       {/* Sidebar for larger screens */}
-      <div className="hidden md:block md:w-1/5 bg-gray-900 text-white p-2">
+      <div className="hidden md:block md:w-1/6 bg-yellow-950 text-white p-2">
         <nav className="space-y-2">
           <Link href="/cerita" className={`block ${isActive('/cerita') ? 'text-yellow-400 font-bold' : ''}`}>
             Hot
