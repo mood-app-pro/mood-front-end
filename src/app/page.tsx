@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "@/components/Layout/Header";
-import HeroSection from "@/components/Beranda/HeroSection";
-import GameCategories from "@/components/Beranda/GameCategories";
-import RecommendedPlayers from "@/components/Beranda/RecommendedPlayers";
-import MobileLegends from "@/components/Beranda/MobileLegends";
-import Footer from "@/components/Layout/Footer";
+import Header from "@/components/layout/Header";
+import HeroSection from "@/components/beranda/HeroSection";
+import GameCategories from "@/components/beranda/GameCategories";
+import RecommendedPlayers from "@/components/beranda/RecommendedPlayers";
+import MobileLegends from "@/components/beranda/MobileLegends";
+import Footer from "@/components/layout/Footer";
 
 const BerandaPage: React.FC = () => {
   return (
