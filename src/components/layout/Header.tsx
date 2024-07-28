@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import LoginModal from "@/components/Login/LoginModal";
+import LoginModal from "../login/LoginModal";
 
-const Header = () => {
+const Header: React.FC = () => {
   const [showServices, setShowServices] = useState(false);
   const [showLanguages, setShowLanguages] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
