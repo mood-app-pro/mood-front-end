@@ -1,5 +1,6 @@
-import React from 'react';
-import Image from 'next/image'; // Import Image from next/image
+'use client';
+import React, { useState } from 'react';
+import Image from 'next/image';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import NavBar from '@/components/cerita/NavBar';
@@ -24,6 +25,16 @@ const posts = [
 ];
 
 const CeritaFollow: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const openModal = (image: string) => {
+    setSelectedImage(image);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <>
       <Header />
@@ -47,7 +58,10 @@ const CeritaFollow: React.FC = () => {
                 </div>
               </div>
               <p className="mb-2 text-sm">{post.content}</p>
-              <div className="relative w-full pb-[100%] mb-2 bg-gray-200 overflow-hidden rounded-lg">
+              <div
+                className="relative w-full pb-[100%] mb-2 bg-gray-200 overflow-hidden rounded-lg cursor-pointer"
+                onClick={() => openModal(post.image)}
+              >
                 <Image
                   src={post.image}
                   alt="Post Image"
@@ -76,9 +90,30 @@ const CeritaFollow: React.FC = () => {
         </div>
       </div>
       <Footer />
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          onClick={closeModal}
+        >
+          <div className="relative w-11/12 h-5/6">
+            <Image
+              src={selectedImage}
+              alt="Selected Post Image"
+              layout="fill"
+              objectFit="contain"
+            />
+            <button
+              className="absolute top-2 right-2 text-white text-2xl"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
-
 
 export default CeritaFollow;
