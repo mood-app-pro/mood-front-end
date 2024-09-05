@@ -154,7 +154,7 @@ const Header: React.FC = () => {
             )}
           </div>
           <Link
-            href="#"
+            href="/topup"
             className="bg-yellow-500 text-white px-3 py-1 rounded flex items-center text-sm"
           >
             Top Up
