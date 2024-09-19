@@ -96,8 +96,12 @@ const Header: React.FC = () => {
             <Link href="/cerita" className="text-gray-600 hover:text-gray-800">
               Cerita
             </Link>
+            <Link href="/topupgame" className="text-gray-600 hover:text-gray-800">
+              Top Up Game
+            </Link>
           </nav>
         </div>
+        
         <div className="flex items-center space-x-4">
           <div className="relative hidden lg:block">
             <input
@@ -241,6 +245,12 @@ const Header: React.FC = () => {
               className="block text-gray-600 hover:text-gray-800"
             >
               Cerita
+            </Link>
+            <Link
+              href="/topupgame"
+              className="block text-gray-600 hover:text-gray-800"
+            >
+              Top Up Game
             </Link>
             <div className="relative">
               <button
