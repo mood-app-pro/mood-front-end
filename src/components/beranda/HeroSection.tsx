@@ -5,9 +5,9 @@ import Image from 'next/image';
 import { useSwipeable } from 'react-swipeable';
 
 const images = [
-  "/images/banner/banner-test.png",
-  "/images/banner/banner-test2.jpg",
-  "/images/banner/banner-test.png",
+  "/images/banner/Banner.png",
+  "/images/banner/Banner2.png",
+  "/images/banner/Banner3.png",
 ];
 
 const HeroSection: React.FC = () => {
@@ -28,23 +28,33 @@ const HeroSection: React.FC = () => {
   });
 
   return (
-    <section className="relative h-96 md:h-120 text-white" {...handlers}>
-      <div className="relative h-full overflow-hidden">
+    <section className="relative mx-auto w-full h-64 md:h-80 lg:h-96 text-white mt-16" {...handlers}>
+      <div className="relative h-full overflow-hidden rounded-lg">
         {images.map((src, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-transform duration-500 ease-in-out transform ${
               index === currentIndex ? 'translate-x-0' : index < currentIndex ? '-translate-x-full' : 'translate-x-full'
             }`}
-            style={{ transition: 'transform 0.5s ease-in-out' }}
           >
-            <Image
-              src={src}
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-              alt={`Slide ${index + 1}`}
-            />
+            <div className="h-full w-full px-4"> {/* Tambahkan padding horizontal */}
+              <Image
+                src={src}
+                alt={`Slide ${index + 1}`}
+                fill
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
+                quality={100}
+                sizes="(max-width: 550px) 100vw, (max-width: 768px) 100vw, (max-width: 1000px) calc(100vw - 32px), 1000px" // Mengurangi ukuran gambar untuk memberikan ruang
+                className="rounded-lg"
+              />
+            </div>
+            {/* Render teks hanya jika index adalah 0 */}
+            {index === 0 && currentIndex === 0 && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                <h1 className="text-2xl md:text-4xl font-bold">Bertemu Teman Mabar Baru.</h1>
+                <p className="text-lg md:text-xl mt-4">Tidak Akan Main Sendiri Lagi</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -57,10 +67,6 @@ const HeroSection: React.FC = () => {
             }`}
           ></div>
         ))}
-      </div>
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-2xl md:text-4xl font-bold">Bertemu Teman Mabar Baru.</h1>
-        <p className="text-lg md:text-xl mt-4">Tidak Akan Main Sendiri Lagi</p>
       </div>
     </section>
   );

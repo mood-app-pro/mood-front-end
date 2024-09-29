@@ -8,10 +8,10 @@ import NavBar from '@/components/cerita/NavBar';
 const notifications = [
   {
     id: 1,
-    user: 'bbymoy',
+    user: 'Gebian',
     time: 'July 1 at 5:12 PM',
     action: 'Mengikuti Anda',
-    avatar: '/images/cerita/aw12.jpg',
+    avatar: '/images/cerita/avatarGebi.webp',
   },
   {
     id: 2,
@@ -29,10 +29,10 @@ const notifications = [
   },
   {
     id: 4,
-    user: 'bbymoy',
-    time: 'July 1 at 5:12 PM',
+    user: 'Aylisia',
+    time: 'Sept 24 at 5:12 PM',
     action: 'Mengomentari Cerita Anda "Bagus Bangettt !!!"',
-    avatar: '/images/cerita/aw12.jpg',
+    avatar: '/images/cerita/profile2.jpg',
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const notifications = [
     id: 6,
     user: 'bbymoy',
     time: 'July 1 at 5:12 PM',
-    action: 'Mengomentari Cerita Anda "Bagus Bangettt !!!"',
+    action: 'Mengomentari Cerita Anda "😍😝😼 !!!"',
     avatar: '/images/cerita/aw12.jpg',
   },
   {
