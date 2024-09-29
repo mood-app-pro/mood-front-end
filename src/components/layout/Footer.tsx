@@ -66,19 +66,19 @@ const Footer: React.FC = () => {
             <h3 className="font-semibold mb-4 text-xs md:text-sm">Follow Us</h3>
             <div className="flex space-x-4">
               <Link href="#">
-                <Image src="/images/icons/icons-facebook.svg" width={24} height={24} alt="Facebook" />
+                <Image src="/images/icons/icons-facebook.svg" width={30} height={30} alt="Facebook" />
               </Link>
               <Link href="#">
-                <Image src="/images/icons/icons-instagram.svg" width={24} height={24} alt="Instagram" />
+                <Image src="/images/icons/icons-instagram.svg" width={30} height={30} alt="Instagram" />
               </Link>
               <Link href="#">
-                <Image src="/images/icons/icons-twitterx.svg" width={24} height={24} alt="Twitter" />
+                <Image src="/images/icons/icons-twitterx.svg" width={30} height={30} alt="Twitter" />
               </Link>
               <Link href="#">
-                <Image src="/images/icons/icons-line.svg" width={24} height={24} alt="YouTube" />
+                <Image src="/images/icons/icons-line.svg" width={30} height={30} alt="YouTube" />
               </Link>
               <Link href="#">
-                <Image src="/images/icons/icons-phone.svg" width={24} height={24} alt="Twitch" />
+                <Image src="/images/icons/icons-phone.svg" width={30} height={30} alt="Twitch" />
               </Link>
               <Link href="#">
                 <Image src="/images/icons/icons-tik-tok.svg" width={24} height={24} alt="Discord" />

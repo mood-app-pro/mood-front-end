@@ -6,12 +6,8 @@ import Image from 'next/image';
 const PaymentPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
-      {/* Header */}
       <Header />
-
-      {/* Main Content */}
       <main className="flex-grow container mx-auto px-4 md:px-8 pt-24">
-        {/* Section Payment Info */}
         <section className="bg-white shadow-lg rounded-lg p-6">
           <h2 className="text-2xl font-bold text-brown-800 mb-4">Terima Kasih!</h2>
           <p className="text-lg text-gray-600 mb-6">
@@ -21,13 +17,11 @@ const PaymentPage = () => {
             Harap Dibayar Sebelum <span className="font-semibold">2024-09-08 23:24:41</span>. Segera lakukan pembayaran sesuai dengan kode bayar/nomor VA yang tercantum. Pastikan nominal pembayaran juga sesuai dengan total bayar.
           </p>
 
-          {/* Payment Details */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Product Info */}
             <div className="bg-gray-100 p-4 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <Image
-                  src="/images/icons/mobile-legends.webp" // Ganti dengan gambar yang sesuai
+                  src="/images/icons/mobile-legends.webp" 
                   alt="Product Image"
                   width={80}
                   height={80}
@@ -43,7 +37,6 @@ const PaymentPage = () => {
               </div>
             </div>
 
-            {/* Payment Method */}
             <div className="bg-gray-100 p-4 rounded-lg shadow-md">
               <div className="mb-4">
                 <h4 className="text-lg font-semibold text-brown-800">Metode Pembayaran</h4>
@@ -60,7 +53,6 @@ const PaymentPage = () => {
             </div>
           </div>
 
-          {/* Payment Total & QR Code */}
           <div className="mt-8 flex flex-col md:flex-row justify-between items-center bg-gray-100 p-6 rounded-lg shadow-md">
             <div className="mb-6 md:mb-0">
               <h4 className="text-lg font-semibold text-brown-800 mb-2">Total Pembayaran</h4>
@@ -79,8 +71,6 @@ const PaymentPage = () => {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
       <Footer />
     </div>
   );
