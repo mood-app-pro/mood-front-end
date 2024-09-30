@@ -40,11 +40,11 @@ const MobileLegends: React.FC = () => {
           </button>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
-          {legends.slice(0, showAll ? legends.length : 4).map((legends, index) => (
+          {legends.slice(0, showAll ? legends.length : 4).map((legend, index) => (
             <div key={index} className="bg-[#3b1f1f] text-white rounded overflow-hidden shadow-md">
-              <img src={legends.image} alt={legends.name} className="w-full h-36 sm:h-48 object-cover" />
+              <img src={legend.image} alt={legend.name} className="w-full h-40 sm:h-48 object-cover object-top" />
               <div className="p-2 sm:p-4">
-                <h3 className="text-sm sm:text-lg font-mono">{legends.name}</h3>
+                <h3 className="text-sm sm:text-lg font-mono">{legend.name}</h3>
                 <div className="flex items-center space-x-2">
                   <Image
                     src={coins.star}
@@ -54,7 +54,7 @@ const MobileLegends: React.FC = () => {
                     style={{ objectFit: 'cover' }}
                     className="rounded-lg"
                   />
-                  <p className="text-xs sm:text-sm">{legends.rating} | {legends.totalHandle}</p>
+                  <p className="text-xs sm:text-sm">{legend.rating} | {legend.totalHandle}</p>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Image
@@ -65,7 +65,7 @@ const MobileLegends: React.FC = () => {
                     style={{ objectFit: 'cover' }}
                     className="rounded-lg"
                   />
-                  <p className="text-xs sm:text-sm">{legends.price}</p>
+                  <p className="text-xs sm:text-sm">{legend.price}</p>
                 </div>
               </div>
             </div>

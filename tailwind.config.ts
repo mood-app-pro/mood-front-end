@@ -1,3 +1,4 @@
+// tailwind.config.ts
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -15,6 +16,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'), 
+  ],
 };
+
 export default config;

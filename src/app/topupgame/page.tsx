@@ -7,6 +7,14 @@ import Image from 'next/image';
 import { useSwipeable } from 'react-swipeable';
 import Link from 'next/link';
 
+// Tipe untuk kategori game
+type GameCategory = 'gameSelular' | 'gamePC' | 'voucherGame' | 'pulsa';
+
+// Tipe untuk gameCategories
+type GameCategories = {
+  [key in GameCategory]: string[];
+};
+
 const bannerImages = [
   "/images/banner/Banner.png",
   "/images/banner/Banner2.png",
@@ -14,11 +22,11 @@ const bannerImages = [
 ];
 
 const trendingVouchers = new Array(10).fill("/images/voucher/Voucher.webp"); // Simpan URL dalam array
-
 const localGameVouchers = new Array(5).fill("/images/voucher/LokalVoucher.webp"); // Simpan URL dalam array
 
 const TopupGamePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState<GameCategory>('gameSelular');
 
   // Auto-slide effect
   useEffect(() => {
@@ -36,8 +44,16 @@ const TopupGamePage = () => {
     trackMouse: true,
   });
 
+  // Kategori voucher game
+  const gameCategories: GameCategories = {
+    gameSelular: new Array(5).fill("/images/voucher/LokalVoucher.webp"),
+    gamePC: new Array(5).fill("/images/voucher/LokalVoucher.webp"), 
+    voucherGame: new Array(5).fill("/images/voucher/LokalVoucher.webp"), 
+    pulsa: new Array(5).fill("/images/voucher/LokalVoucher.webp"),
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-gray-900"> {/* Ubah background keseluruhan jika diperlukan */}
+    <div className="min-h-screen flex flex-col bg-gray-900">
       {/* Header */}
       <Header />
 
@@ -86,8 +102,7 @@ const TopupGamePage = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
               {trendingVouchers.map((src, index) => (
-                <div key={index} className="relative bg-black p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 mb-6 text-white">
-                  {/* Gambar yang sedikit keluar dari kartu */}
+                <div key={index} className="relative bg-gray-700 p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 mb-10 text-white">
                   <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 z-10 w-24 h-24 mt-2">
                     <Image
                       src={src}
@@ -98,7 +113,6 @@ const TopupGamePage = () => {
                       className="rounded border-4 border-yellow-500"
                     />
                   </div>
-                  {/* Konten Kartu */}
                   <div className="pt-16 text-center justify-center items-center">
                     <h3 className="text-lg font-semibold mb-2">Voucher {index + 1}</h3>
                     <p className="text-sm mb-4 mx-4">Harga: Rp. {index * 10000 + 10000}</p>
@@ -113,29 +127,45 @@ const TopupGamePage = () => {
             </div>
           </div>
         </section>
-
-        {/* Voucher Game Grid Section */}
-        <section className="py-8 bg-gray-50 mb-8">
-          <h2 className="text-2xl font-semibold text-center mb-8 text-gray-900">Voucher Game</h2>
+          <hr />
+          
+        {/* Voucher Game Section with Tabs */}
+        <section className="py-8 bg-gray-900 mb-8">
+          <h2 className="text-2xl font-semibold text-center mb-8 text-white">Voucher Game</h2>
+          <div className="flex justify-center space-x-4 mb-4">
+            {Object.keys(gameCategories).map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveTab(category as GameCategory)}
+                className={`px-4 py-2 text-white transition duration-200 ${
+                  activeTab === category
+                    ? 'underline font-bold underline-offset-4'
+                    : 'opacity-60'
+                }`}
+              >
+                {category === 'gameSelular' ? 'Game Selular' : category === 'gamePC' ? 'Game PC' : category === 'voucherGame' ? 'Voucher Game' : 'Pulsa'}
+              </button>
+            ))}
+          </div>
+          
+          {/* Konten berdasarkan kategori yang dipilih */}
           <div className="container mx-auto px-4 mt-20">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-              {localGameVouchers.map((src, index) => (
-                <div key={index} className="relative bg-black p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 mb-6 text-white">
-                  {/* Gambar yang sedikit keluar dari kartu */}
+              {gameCategories[activeTab]?.map((src, index) => (
+                <div key={index} className="relative bg-gray-700 p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 mb-10 text-white">
                   <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 z-10 w-24 h-24">
                     <Image
                       src={src}
-                      alt={`Local Game Voucher ${index + 1}`}
+                      alt={`Voucher ${activeTab} ${index + 1}`}
                       layout="fill"
                       objectFit="cover"
                       objectPosition="center"
                       className="rounded border-4 border-yellow-500"
                     />
                   </div>
-                  {/* Konten Kartu */}
-                  <div className="pt-16 text-center justify-center items-center">
-                    <h3 className="text-lg font-semibold mb-2">Local Game Voucher {index + 1}</h3>
-                    <p className="text-sm mb-4">Harga: Rp. {index * 15000 + 15000}</p>
+                  <div className="pt-16 text-center items-center justify-center">
+                    <h3 className="text-lg font-semibold mb-2">{activeTab === 'gameSelular' ? 'Game Selular' : activeTab === 'gamePC' ? 'Game PC' : activeTab === 'voucherGame' ? 'Voucher Game' : 'Pulsa'} {index + 1}</h3>
+                    <p className="text-sm mb-4">Harga: Rp. {index * 10000 + 10000}</p>
                     <button className="mt-2 bg-orange-500 text-white px-4 rounded-full hover:bg-orange-600 transition duration-200">
                       TOP UP
                     </button>
@@ -145,29 +175,26 @@ const TopupGamePage = () => {
             </div>
           </div>
         </section>
-
-        {/* Game Lokal Section */}
-        <section className="py-8 bg-gray-100">
-          <h2 className="text-2xl font-semibold text-center mb-6 text-gray-900">Game Lokal</h2>
+          <hr />
+        <section className="py-8 bg-gray-900">
+          <h2 className="text-2xl font-semibold text-center mb-6 text-white">Game Lokal</h2>
           <div className="container mx-auto px-4 mt-20">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
               {localGameVouchers.map((src, index) => (
-                <div key={index} className="relative bg-black p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 mb-6 text-white">
-                  {/* Gambar yang sedikit keluar dari kartu */}
+                <div key={index} className="relative bg-gray-700 p-4 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 mb-10 text-white">
                   <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 z-10 w-24 h-24">
                     <Image
                       src={src}
-                      alt={`Local Game Voucher ${index + 1}`}
+                      alt={`Voucher Game Lokal ${index + 1}`}
                       layout="fill"
                       objectFit="cover"
                       objectPosition="center"
-                      className="rounded border-4 border-yellow-500"
+                      className="border-4 border-yellow-500 rounded-full"
                     />
                   </div>
-                  {/* Konten Kartu */}
                   <div className="pt-16 text-center items-center justify-center">
-                    <h3 className="text-lg font-semibold mb-2">UniPin Voucher {index + 1}</h3>
-                    <p className="text-sm mb-4">Harga: Rp. {index * 20000 + 20000}</p>
+                    <h3 className="text-lg font-semibold mb-2">Voucher Game Lokal {index + 1}</h3>
+                    <p className="text-sm mb-4">Harga: Rp. {index * 10000 + 10000}</p>
                     <button className="mt-2 bg-orange-500 text-white px-4 rounded-full hover:bg-orange-600 transition duration-200">
                       TOP UP
                     </button>
@@ -178,8 +205,7 @@ const TopupGamePage = () => {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
+        <hr />
       <Footer />
     </div>
   );

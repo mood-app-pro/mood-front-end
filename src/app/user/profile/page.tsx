@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import Link from 'next/link';
 
 const UserProfile = () => {
   return (
@@ -9,18 +10,17 @@ const UserProfile = () => {
       <section className="pt-24 pb-8 bg-gray-100 min-h-screen">
         <div className="container mx-auto px-4 md:px-20 lg:px-40 xl:px-56">
           <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
-            {/* Left Sidebar */}
             <div className="md:w-1/3 space-y-6">
-              {/* User Info */}
-              <div className="bg-white shadow-md rounded-lg p-6 text-center">
+              <div className="bg-yellow-950 shadow-md rounded-lg p-6 text-center">
                 <img
-                  src="/images/cerita/awaw.jpg" // Replace with actual image path
+                  src="/images/cerita/awaw.jpg"
                   alt="User Avatar"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
-                <h2 className="text-xl font-semibold">RobyxHabibi</h2>
-                <p className="text-gray-600 mb-2">@username</p>
-                <div className="text-gray-500 text-sm">
+                <h2 className="text-xl font-semibold text-white font-mono">Pras Manurung Handoyono</h2>
+                <hr />
+                <p className="text-gray-300 mb-2">@username</p>
+                <div className="text-gray-100 text-sm">
                   <span>ID: 12312312</span>
                 </div>
               </div>
@@ -31,15 +31,15 @@ const UserProfile = () => {
                   <h3 className="text-lg font-medium">Bio</h3>
                 </div>
                 <p className="text-gray-500">Ini adalah bio singkat. Tulis sesuatu tentang dirimu di sini.</p>
-                <div className="flex mt-4 space-x-2 overflow-x-scroll">
-                  <img src="/images/cerita/aw11.jpg" alt="image1" className="w-12 h-12 rounded-full" />
-                  <img src="/images/cerita/aw12.jpg" alt="image2" className="w-12 h-12 rounded-full" />
-                  <img src="/images/cerita/awaw.jpg" alt="image3" className="w-12 h-12 rounded-full" />
-                  {/* Add more images as needed */}
+                <div className="flex mt-4 overflow-x-scroll">
+                  <img src="/images/cerita/avatarGebi.webp" alt="image1" className="w-12 h-12 rounded-full flex-shrink-0 m-2" />
+                  <img src="/images/cerita/aw12.jpg" alt="image2" className="w-12 h-12 rounded-full flex-shrink-0 m-2" />
+                  <img src="/images/cerita/awaw.jpg" alt="image3" className="w-12 h-12 rounded-full flex-shrink-0 m-2" />
+                  <img src="/images/cerita/awaw.jpg" alt="image3" className="w-12 h-12 rounded-full flex-shrink-0 m-2" />
+                  <img src="/images/cerita/awaw.jpg" alt="image3" className="w-12 h-12 rounded-full flex-shrink-0 m-2" />
                 </div>
               </div>
 
-              {/* Gift Collection Section */}
               <div className="bg-white shadow-md rounded-lg p-4">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg font-medium">Koleksi Hadiah</h3>
@@ -70,7 +70,7 @@ const UserProfile = () => {
                   <h3 className="text-lg font-medium text-gray-500">Momen</h3>
                 </div>
                 <div className="bg-gray-100 p-16 rounded-lg text-center">
-                  <img src="/images/cerita/awaw.jpg" alt="Empty State" className="w-12 h-12 mx-auto mb-4"/>
+                  <img src="/images/cerita/awaw.jpg" alt="Empty State" className="w-12 h-12 mx-auto mb-4 rounded-full" />
                   <p className="text-gray-500">User ini belum memiliki player link</p>
                 </div>
               </div>
