@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
               index === currentIndex ? 'translate-x-0' : index < currentIndex ? '-translate-x-full' : 'translate-x-full'
             }`}
           >
-            <div className="h-full w-full px-4"> {/* Tambahkan padding horizontal */}
+            <div className="h-full w-full px-4">
               <Image
                 src={src}
                 alt={`Slide ${index + 1}`}

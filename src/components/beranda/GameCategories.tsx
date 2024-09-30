@@ -75,14 +75,24 @@ const GameCategories: React.FC = () => {
             </div>
 
             <div className={`grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5`}>
-              {windowWidth > 0 && category.items.slice(0, expandedCategoryIndex === idx ? category.items.length : getInitialItemsToShow()).map((item, index) => (
+              {windowWidth > 0 && category.items.slice(
+                0,
+                expandedCategoryIndex === idx ? category.items.length : getInitialItemsToShow()
+              ).map((item, index) => (
                 <div key={`item-${index}`} className="bg-white shadow-md rounded-lg overflow-hidden text-center transition-transform transform hover:scale-105">
                   <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    <div className="aspect-w-1 aspect-h-1 bg-gray-200">
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover transition-transform duration-300 transform hover:scale-105" />
+                    {/* Menggunakan rasio aspek responsif: 2:3 pada mobile dan 3:2 pada desktop */}
+                    <div className="aspect-w-2 h-44 md:aspect-w-3 md:aspect-h-2 bg-gray-200 overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover object-top transition-transform duration-300 transform hover:scale-105"
+                      />
                     </div>
                     <div className="p-4">
-                      <h3 className="text-xs md:text-sm lg:text-base font-bold text-gray-800 truncate">{item.name}</h3>
+                      <h3 className="text-xs md:text-sm lg:text-base font-bold text-gray-800 truncate">
+                        {item.name}
+                      </h3>
                     </div>
                   </a>
                 </div>

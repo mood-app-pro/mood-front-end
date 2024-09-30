@@ -41,23 +41,36 @@ const players = [
 
 const RecommendedPlayers: React.FC = () => {
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 665,
+        settings: {
+          arrows: false, // Menghilangkan tombol slider
+        },
+      },
+      {
+        breakpoint: 100,
+        settings: {
+          arrows: false, // Pastikan tombol juga hilang di bawah 100 piksel
+        },
+      },
+    ],
   };
 
   return (
     <section className="bg-yellow-950 py-8 text-white">
       <div className="container mx-auto px-2 sm:px-4 md:px-20 lg:px-40 xl:px-56">
-        <h2 className="text-2xl font-bold mb-4">REKOMENDASI TOP PLAYER</h2>
+        <h2 className="xl:text-2xl md:text-lg sm:text-lg font-bold mb-4 text-start">REKOMENDASI TOP PLAYER</h2>
         <Slider {...settings}>
           {players.map((player) => (
-            <div key={player.name} className="bg-gray-800 rounded overflow-hidden shadow-md flex h-auto">
+            <div key={player.name} className="bg-gray-800 rounded overflow-hidden shadow-md flex h-auto mb-4">
               <div className="flex flex-row w-full">
-              <div className="flex-shrink-0 relative h-48 p-2"> {/* Tambahkan padding di sini */}
-                  <div className="border border-white rounded-lg overflow-hidden h-full relative w-[180px]">
+                <div className="flex-shrink-0 relative sm:h-[140px] md:h-[160px] lg:h-[180px] xl:h-[200px] p-2">
+                  <div className="border border-white rounded-lg overflow-hidden h-[120px] sm:h-[120px] md:h-[140px] lg:h-[158px] xl:h-[177px] relative w-[120px] mt-1 ml-4">
                     <Image
                       src={player.image}
                       alt={player.name}
@@ -67,18 +80,18 @@ const RecommendedPlayers: React.FC = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col justify-center w-2/3 p-4">
-                  <h3 className="text-xl font-bold text-white">{player.name}</h3>
-                  <p className="text-lg text-gray-300">{player.game}</p>
-                  <p className="text-sm text-white">{player.description}</p>
-                  <p className="text-sm text-green-400">{player.status}</p>
+                <div className="flex flex-col justify-center w-2/3 p-2">
+                  <h3 className="text-base sm:text-lg font-bold text-white">{player.name}</h3>
+                  <p className="text-sm sm:text-base text-gray-300">{player.game}</p>
+                  <p className="text-xs sm:text-sm text-white">{player.description}</p>
+                  <p className="text-xs text-green-400">{player.status}</p>
                   <div className="flex items-center justify-start mt-2">
                     <div className="flex space-x-2">
-                      <span className="text-sm text-gray-300">{player.matches}</span>
+                      <span className="text-xs text-gray-300">{player.matches}</span>
                       <span></span>
-                      <span className="text-sm text-gray-300">{player.reviews}</span>
+                      <span className="text-xs text-gray-300">{player.reviews}</span>
                     </div>
-                    <span className="text-sm bg-yellow-500 text-gray-800 px-2 py-1 rounded ml-3">{player.rating}</span>
+                    <span className="text-xs bg-yellow-500 text-gray-800 px-2 py-1 rounded ml-3">{player.rating}</span>
                   </div>
                 </div>
               </div>

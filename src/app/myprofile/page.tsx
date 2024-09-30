@@ -10,27 +10,24 @@ const MyProfile = () => {
         <div className="container mx-auto px-4 md:px-20 lg:px-40 xl:px-56">
           <h1 className="text-2xl font-semibold mb-6">Edit Profile</h1>
           <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
-            {/* Left Sidebar */}
             <div className="md:w-1/3 space-y-6">
-              {/* Profile Photo Section */}
               <div className="bg-white shadow-md rounded-lg p-6 text-center">
                 <h2 className="text-lg font-medium mb-4">Photo Profile</h2>
                 <img
-                  src="http://localhost:3000/images/cerita/aw12.jpg" // Replace with actual image path
+                  src="http://localhost:3000/images/cerita/aw12.jpg"
                   alt="Profile"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
-                <button className="px-4 py-2 bg-brown-500 text-white rounded">Upload Foto</button>
+                <button className="px-4 py-2 bg-brown-500 text-black rounded">Upload Foto</button>
               </div>
 
-              {/* Albums Section */}
               <div className="bg-white shadow-md rounded-lg p-6">
                 <h2 className="text-lg font-medium mb-4">Albums (0 / 6)</h2>
                 <div className="grid grid-cols-3 gap-4">
                   {Array(6)
                     .fill(null)
                     .map((_, index) => (
-                      <div key={index} className="w-full h-32 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <div key={index} className="album-square w-full bg-gray-200 rounded-lg flex items-center justify-center">
                         <svg
                           className="w-8 h-8 text-gray-400"
                           fill="none"
@@ -111,7 +108,7 @@ const MyProfile = () => {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth="2"
-                        d="M12 14l9-5-9-5-9 5 9 5z"
+                        d="M12 14l9-5-9-5-9 5z"
                       ></path>
                     </svg>
                     <span className="text-gray-700">Pria</span>
@@ -128,7 +125,7 @@ const MyProfile = () => {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth="2"
-                        d="M12 14l9-5-9-5-9 5 9 5z"
+                        d="M12 14l9-5-9-5-9 5z"
                       ></path>
                     </svg>
                     <span className="text-gray-700">Wanita</span>
@@ -142,15 +139,12 @@ const MyProfile = () => {
                 <div className="flex space-x-4">
                   <select className="border border-gray-300 rounded w-1/3 px-4 py-2">
                     <option>Tanggal</option>
-                    {/* Add options here */}
                   </select>
                   <select className="border border-gray-300 rounded w-1/3 px-4 py-2">
                     <option>Bulan</option>
-                    {/* Add options here */}
                   </select>
                   <select className="border border-gray-300 rounded w-1/3 px-4 py-2">
                     <option>Tahun</option>
-                    {/* Add options here */}
                   </select>
                 </div>
               </div>
