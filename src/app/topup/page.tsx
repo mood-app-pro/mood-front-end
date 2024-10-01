@@ -6,7 +6,7 @@ const Topup = () => {
   return (
     <>
       <Header />
-      <section className="pt-24 py-8"> {/* Added pt-24 to create space below the header */}
+      <section className="pt-24 py-8"> 
         <div className="container mx-auto px-4 md:px-20 lg:px-40 xl:px-56">
           <h1 className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left">Pusat Top Up</h1>
           <div className="mb-6 flex flex-col md:flex-row justify-center md:justify-start items-center md:items-start space-y-4 md:space-y-0 md:space-x-4">

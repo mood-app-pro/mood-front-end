@@ -11,14 +11,14 @@ const MyProfile = () => {
           <h1 className="text-2xl font-semibold mb-6">Edit Profile</h1>
           <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
             <div className="md:w-1/3 space-y-6">
-              <div className="bg-white shadow-md rounded-lg p-6 text-center">
+              <div className="bg-yellow-950 text-white shadow-md rounded-lg p-6 text-center">
                 <h2 className="text-lg font-medium mb-4">Photo Profile</h2>
                 <img
                   src="http://localhost:3000/images/cerita/aw12.jpg"
                   alt="Profile"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
-                <button className="px-4 py-2 bg-brown-500 text-black rounded">Upload Foto</button>
+                <button className="px-4 py-2 bg-brown-500 text-white rounded">Upload Foto</button>
               </div>
 
               <div className="bg-white shadow-md rounded-lg p-6">
@@ -29,7 +29,7 @@ const MyProfile = () => {
                     .map((_, index) => (
                       <div key={index} className="album-square w-full bg-gray-200 rounded-lg flex items-center justify-center">
                         <svg
-                          className="w-8 h-8 text-gray-400"
+                          className="w-8 h-24 text-gray-400"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"

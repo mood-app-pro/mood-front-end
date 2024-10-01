@@ -21,8 +21,8 @@ const bannerImages = [
   "/images/banner/Banner3.png",
 ];
 
-const trendingVouchers = new Array(10).fill("/images/voucher/Voucher.webp"); // Simpan URL dalam array
-const localGameVouchers = new Array(5).fill("/images/voucher/LokalVoucher.webp"); // Simpan URL dalam array
+const trendingVouchers = new Array(10).fill("/images/voucher/Voucher.webp");
+const localGameVouchers = new Array(5).fill("/images/voucher/LokalVoucher.webp");
 
 const TopupGamePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -127,8 +127,7 @@ const TopupGamePage = () => {
             </div>
           </div>
         </section>
-          <hr />
-          
+
         {/* Voucher Game Section with Tabs */}
         <section className="py-8 bg-gray-900 mb-8">
           <h2 className="text-2xl font-semibold text-center mb-8 text-white">Voucher Game</h2>
@@ -175,7 +174,8 @@ const TopupGamePage = () => {
             </div>
           </div>
         </section>
-          <hr />
+
+        {/* Game Lokal Section */}
         <section className="py-8 bg-gray-900">
           <h2 className="text-2xl font-semibold text-center mb-6 text-white">Game Lokal</h2>
           <div className="container mx-auto px-4 mt-20">
@@ -189,7 +189,7 @@ const TopupGamePage = () => {
                       layout="fill"
                       objectFit="cover"
                       objectPosition="center"
-                      className="border-4 border-yellow-500 rounded-full"
+                      className="border-4 border-yellow-500 rounded"
                     />
                   </div>
                   <div className="pt-16 text-center items-center justify-center">
@@ -205,7 +205,8 @@ const TopupGamePage = () => {
           </div>
         </section>
       </main>
-        <hr />
+
+      {/* Footer */}
       <Footer />
     </div>
   );

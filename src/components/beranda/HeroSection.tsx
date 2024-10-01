@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Waktu Slider
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -29,7 +29,7 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className="relative mx-auto w-full h-64 md:h-80 lg:h-96 text-white mt-16" {...handlers}>
-      <div className="relative h-full overflow-hidden rounded-lg">
+      <div className="relative h-full overflow-hidden">
         {images.map((src, index) => (
           <div
             key={index}
@@ -45,10 +45,8 @@ const HeroSection: React.FC = () => {
                 style={{ objectFit: 'cover', objectPosition: 'center' }}
                 quality={100}
                 sizes="(max-width: 550px) 100vw, (max-width: 768px) 100vw, (max-width: 1000px) calc(100vw - 32px), 1000px" // Mengurangi ukuran gambar untuk memberikan ruang
-                className="rounded-lg"
               />
             </div>
-            {/* Render teks hanya jika index adalah 0 */}
             {index === 0 && currentIndex === 0 && (
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
                 <h1 className="text-2xl md:text-4xl font-bold">Bertemu Teman Mabar Baru.</h1>
